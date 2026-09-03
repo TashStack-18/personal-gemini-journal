@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #faf8f5;
+    color: #1c1917;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.012em;
+    background-image: 
+      radial-gradient(at 15% 15%, rgba(217, 119, 6, 0.035) 0px, transparent 55%),
+      radial-gradient(at 85% 85%, rgba(180, 83, 9, 0.03) 0px, transparent 60%);
+    background-attachment: fixed;
+  }
+}
+
+.font-editorial {
+  font-family: 'Fraunces', Georgia, serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+.font-meta {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
+/* Signature Paper & Journal Canvas Surfaces */
+.journal-canvas-surface {
+  background: #ffffff;
+  box-shadow: 
+    0 1px 2px 0 rgba(28, 25, 23, 0.03),
+    0 8px 24px -6px rgba(28, 25, 23, 0.06),
+    0 24px 48px -12px rgba(28, 25, 23, 0.04);
+  border: 1px solid rgba(231, 229, 228, 0.85);
+}
+
+.journal-paper-ruled {
+  background-image: linear-gradient(rgba(245, 245, 244, 0.8) 1px, transparent 1px);
+  background-size: 100% 2.25rem;
+}
+
+/* Subtle Mood Resonance Ambience */
+.mood-glow-overwhelmed {
+  background: radial-gradient(circle at 50% 0%, rgba(100, 116, 139, 0.08), transparent 70%);
+}
+.mood-glow-uncertain {
+  background: radial-gradient(circle at 50% 0%, rgba(113, 113, 122, 0.08), transparent 70%);
+}
+.mood-glow-still {
+  background: radial-gradient(circle at 50% 0%, rgba(120, 113, 108, 0.08), transparent 70%);
+}
+.mood-glow-grounded {
+  background: radial-gradient(circle at 50% 0%, rgba(217, 119, 6, 0.09), transparent 70%);
+}
+.mood-glow-radiant {
+  background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.12), transparent 70%);
+}
+
+/* Refined tactile card */
+.studio-surface {
+  background-color: #ffffff;
+  border: 1px solid #e7e5e4;
+  box-shadow: 0 1px 3px 0 rgba(28, 25, 23, 0.02), 0 6px 16px -4px rgba(28, 25, 23, 0.04);
+}
+
+.studio-surface-subtle {
+  background-color: #fcfbfa;
+  border: 1px solid #ede8e3;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
+
+/* Smooth keyframes for interactive moments */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
