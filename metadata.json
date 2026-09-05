@@ -1,0 +1,7 @@
+{
+  "name": "Personal Gemini Journal",
+  "description": "A secure, AI-powered personal journaling and reflection application with Firebase Authentication, Cloud Firestore, and user isolation.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

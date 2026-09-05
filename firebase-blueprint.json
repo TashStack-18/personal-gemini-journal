@@ -1,0 +1,107 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile document storing basic account metadata.",
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "User's public display name",
+          "maxLength": 100
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when user document was created"
+        },
+        "lastActiveAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when user was last active"
+        }
+      },
+      "required": ["createdAt", "lastActiveAt"]
+    },
+    "Journal": {
+      "title": "Journal",
+      "description": "A single journal entry containing multi-turn conversation and mood score.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the journal entry",
+          "maxLength": 200
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
+        },
+        "moodScore": {
+          "type": "number",
+          "description": "Mood rating from 1 to 5"
+        },
+        "themes": {
+          "type": "array",
+          "description": "Extracted topic themes"
+        },
+        "messages": {
+          "type": "array",
+          "description": "Conversation turns with Gemini"
+        }
+      },
+      "required": ["title", "createdAt", "updatedAt"]
+    },
+    "Rewind": {
+      "title": "Rewind",
+      "description": "Server-generated Mood Rewind reflection and pattern summary.",
+      "type": "object",
+      "properties": {
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the rewind was generated"
+        },
+        "periodStart": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Start of analyzed timeframe"
+        },
+        "periodEnd": {
+          "type": "string",
+          "format": "date-time",
+          "description": "End of analyzed timeframe"
+        },
+        "summaryText": {
+          "type": "string",
+          "description": "AI reflection narrative"
+        },
+        "highlightedThemes": {
+          "type": "array",
+          "description": "Key themes detected across journals"
+        }
+      },
+      "required": ["generatedAt", "summaryText"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Root user document for each authenticated user."
+    },
+    "/users/{userId}/journals/{journalId}": {
+      "schema": "Journal",
+      "description": "User's private journal entries and multi-turn conversations."
+    },
+    "/users/{userId}/rewinds/{rewindId}": {
+      "schema": "Rewind",
+      "description": "Server-generated Mood Rewinds for the user."
+    }
+  }
+}
